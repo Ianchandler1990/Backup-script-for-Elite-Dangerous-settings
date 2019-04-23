@@ -6,22 +6,23 @@ set backupcmd=xcopy /s /c /d /e /h /i /r /y
 SET /P Bindsyesno=Do you wish to proceed to backup your Key Binds? [y/n]:
 IF "%Bindsyesno%"=="y" GOTO KeyBinds
 IF "%Bindsyesno%"=="Y" GOTO KeyBinds
-GOTO Journal
+GOTO Journalstart
 
 :KeyBinds
 echo ### Backing Up ED Key Binds
 %backupcmd% "C:\Users\%username%\AppData\Local\Frontier Developments\Elite Dangerous\Options\Bindings" %drive%\KeyBinds
 
-:Journal
+:Journalstart
 SET /P Journalyesno=Do you wish to proceed to backup your Journal? [y/n]:
 IF "%Journalyesno%"=="y" GOTO Journal
 IF "%Journalyesno%"=="Y" GOTO Journal
-GOTO Graphics
+GOTO Graphicsstart
 
+:Journal
 echo ### Backing Up ED Journal
 %backupcmd% "C:\Users\%username%\Saved Games\Frontier Developments\Elite Dangerous" %drive%\Journal
 
-:Graphics
+:Graphicsstart
 SET /P Graphicsyesno=Do you wish to proceed to backup your Graphics? [y/n]:
 IF "%Graphicsyesno%"=="y" GOTO Graphics
 IF "%Graphicsyesno%"=="Y" GOTO Graphics
